@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block nav_home %}inactive{% endblock %}
+{% block nav_search %}active{% endblock %}
+
+{% block content %}
+<h2>Search for Student</h2>
+            
+            <form method="POST" class="search-form">
+                <div class="form-group">
+                    <label for="roll">Enter Roll Number:</label>
+                    <input type="number" id="roll" name="roll" required>
+                </div>
+                <button type="submit" class="btn">Search</button>
+            </form>
+
+            {% if error %}
+                <div class="error-message">
+                    <strong>Error:</strong> {{ error }}
+                </div>
+            {% endif %}
+
+            {% if student %}
+                <section class="search-result">
+                    <h3>Student Found</h3>
+                    <div class="student-card">
+                        <p><strong>Roll Number:</strong> {{ student.rollno }}</p>
+                        <p><strong>Name:</strong> {{ student.name }}</p>
+                        <p><strong>Department:</strong> {{ student.department }}</p>
+                        <p><strong>Email:</strong> {{ student.email }}</p>
+                    </div>
+                    <a href="/update/{{ student.rollno }}" class="btn">Update Email</a>
+                </section>
+            {% endif %}
+{% endblock %}

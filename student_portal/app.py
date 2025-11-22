@@ -11,7 +11,7 @@ class Student:
     def __init__(self):
         pass
 
-    def display_info():
+    def display_info(self):
         return display_all()
 
     def update_email(self, roll, new_email):
@@ -81,7 +81,6 @@ def add_record(name, roll, dep, email): #add student record
     return {"success": True, "message": "Student record added."}
 
 def searchby_roll(roll):
-    """Search for a student by roll number"""
     try:
         roll = int(roll)
     except ValueError:
@@ -97,7 +96,7 @@ def display_all():
     details = json_data()
     return details
 
-                #ROUTES
+                                                            #ROUTES
 
 @app.route('/')         #HOMEPAGE
 def index():
@@ -105,7 +104,7 @@ def index():
 
 @app.route('/students')  #DISPLAY ALL
 def students():
-    all_students = display_all()
+    all_students = display_all() #data from json
     return render_template('students.html', students=all_students)
 
 @app.route('/add', methods=['GET', 'POST'])     # ADD NEW STD 

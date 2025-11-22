@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h2>Update Student Email</h2>
+            
+            {% if error %}
+                <div class="error-message">
+                    <strong>Error:</strong> {{ error }}
+                </div>
+            {% endif %}
+
+            {% if success %}
+                <div class="success-message">
+                    <strong>Success:</strong> {{ success }}
+                </div>
+            {% endif %}
+            
+            {% if student %}
+                <form method="POST" class="form">
+                    <div class="form-group">
+                        <label for="rollno">Roll Number:</label>
+                        <input type="text" id="rollno" value="{{ student.rollno }}" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" value="{{ student.name }}" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department:</label>
+                        <input type="text" id="department" value="{{ student.department }}" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">New Email:</label>
+                        <input type="email" id="email" name="email" value="{{ student.email }}" required placeholder="example@domain.com">
+                    </div>
+
+                    <button type="submit" class="btn">Update Email</button>
+                    <a href="/students" class="btn btn-secondary">Back</a>
+                </form>
+            {% else %}
+                <p>Student not found.</p>
+            {% endif %}
+{% endblock %}

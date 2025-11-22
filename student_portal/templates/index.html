@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %} {% endblock %}
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Management Portal</h1>
+            <p><em>Manage student records efficiently</em></p>
+        </header>
+        
+        <nav class="navbar">
+            <a href="/" class="nav-item {% block nav_home %}active{% endblock %}">Home</a>
+            <a href="/students" class="nav-item {% block nav_students %}{% endblock %}">View All Students</a>
+            <a href="/add" class="nav-item {% block nav_add %}{% endblock %}">Add Student</a>
+            <a href="/search" class="nav-item {% block nav_search %}{% endblock %}">Search Student</a>
+        </nav>
+
+        <main>
+            {% block content %}
+            <section class="welcome">
+                <h2>Welcome to the Student Portal</h2>
+                <p>This portal allows you to:</p>
+                <ul>
+                    <li>View all student records</li>
+                    <li>Add new students to the database</li>
+                    <li>Search for students by roll number</li>
+                    <li>Update student information</li>
+                </ul>
+            </section>
+
+            <section class="quick-actions">
+                <h3>Features</h3>
+                <div class="action-cards">
+                    <div class="card">
+                        <h4> View All Students</h4>
+                        <p>Browse the complete list of students in the database</p>
+                        <a href="/students" class="btn">View</a>
+                    </div>
+                    <div class="card">
+                        <h4> Add Student</h4>
+                        <p>Add a new student record to the system</p>
+                        <a href="/add" class="btn">Add</a>
+                    </div>
+                    <div class="card">
+                        <h4> Search Student</h4>
+                        <p>Find a student by roll number</p>
+                        <a href="/search" class="btn">Search</a>
+                    </div>
+                </div>
+            </section>
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>

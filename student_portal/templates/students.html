@@ -1,57 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Students - Student Portal</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Student Management Portal</h1>
-        </header>
-        
-        <nav class="navbar">
-            <a href="/" class="nav-item">Home</a>
-            <a href="/students" class="nav-item active">View All Students</a>
-            <a href="/add" class="nav-item">Add Student</a>
-            <a href="/search" class="nav-item">Search Student</a>
-        </nav>
+{% extends 'index.html' %}
+{% block nav_home %}inactive{% endblock %}
+{% block nav_students %}active{% endblock %}
 
-        <main>
-            <h2>All Students</h2>
-            
-            {% if students %}
-                <table class="student-table">
-                    <thead>
-                        <tr>
-                            <th>Roll Number</th>
-                            <th>Name</th>
-                            <th>Department</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for student in students %}
-                        <tr>
-                            <td>{{ student.rollno }}</td>
-                            <td>{{ student.name }}</td>
-                            <td>{{ student.department }}</td>
-                            <td>{{ student.email }}</td>
-                            <td>
-                                <a href="/update/{{ student.rollno }}" class="btn-small">Update</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <p class="info">Total Students: {{ students|length }}</p>
-            {% else %}
-                <p class="no-data">No students found in the database.</p>
-            {% endif %}
-        </main>
-    </div>
-</body>
-</html>
+{% block content %}
+<h2>All Students</h2>
+
+{% if students %}
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th>Roll Number</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.rollno }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.department }}</td>
+                <td>{{ student.email }}</td>
+                <td>
+                    <a href="/update/{{ student.rollno }}" class="btn-small">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="info">Total Students: {{ students|length }}</p>
+{% else %}
+    <p class="no-data">No students found in the database.</p>
+{% endif %}
+{% endblock %}

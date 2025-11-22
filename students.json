@@ -1,0 +1,20 @@
+[
+    {
+        "name": "bushra",
+        "rollno": 9,
+        "department": "it",
+        "email": "bk@gmail.com"
+    },
+    {
+        "name": "khalid",
+        "rollno": 10,
+        "department": "it&cs",
+        "email": "kh@gmail.com"
+    },
+    {
+        "name": "jack",
+        "rollno": 11,
+        "department": "it",
+        "email": "jkl@gmail.com"
+    }
+]
