@@ -15,6 +15,12 @@
         "name": "jack",
         "rollno": 11,
         "department": "it",
-        "email": "jkl@gmail.com"
+        "email": "jack@outlook.com"
+    },
+    {
+        "name": "ace",
+        "rollno": 14,
+        "department": "math",
+        "email": "ex@outlook.com"
     }
 ]
